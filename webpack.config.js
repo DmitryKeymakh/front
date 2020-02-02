@@ -26,8 +26,15 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader',
             },
-
+            {
+                test: /\.s[ac]ss$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
         ],
+    },
+    resolve: {
+        modules: [`${__dirname}/static_src`, 'node_modules'],
+        extensions: ['.js', '.jsx'],
     },
     devServer: {
         port: 8080,

@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const element = <h1 className="element">Кажется, мы подключили React</h1>;
+import Layout from './components/Layout';
 
 ReactDOM.render(
-    element,
+    <Layout/>,
     document.getElementById('root'),
 );

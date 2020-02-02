@@ -3,4 +3,17 @@
   padding: 0;
   outline: none; }
 
+.container, .swiper-container {
+  width: 1400px;
+  margin: 0 auto; }
+
+.swiper-slide {
+  height: 350px;
+  width: 150px; }
+
+.swiper-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%; }
+
 /*# sourceMappingURL=main.css.map */
