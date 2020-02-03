@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 export default class GalleryImage extends React.Component {
+    // static propTypes = {
+    //     url: PropTypes.string,
+    // };
     render() {
-
         return(
-            <div className="swiper-slide"><img className="swiper-image" src="/images/moto/1_0004_Layer-4.jpg" alt=""/></div>
+            <div className="swiper-slide" key={this.props.id}>
+                <img onClick={() => this.setState({isOpen: true, photoIndex: this.props.photoIndex})} className="swiper-image" src={this.props.url} alt="Gallery-image"/>
+            </div>
         )
     }
 }
