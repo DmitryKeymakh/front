@@ -5,9 +5,8 @@ $container-width: 1400px;
     margin: 0 auto;
 }
 
-//@import "styles-components/gallery";
 .swiper-container{
-    @extend .container
+    @extend .container;
 }
 .swiper-slide{
     height: 350px;
