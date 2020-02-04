@@ -14,6 +14,7 @@ export default class Carousel extends React.Component {
         this.state = {
             url: '',
             images: [],
+            photoIndex: 0,
             isOpen: false,
         };
     }
@@ -61,13 +62,44 @@ export default class Carousel extends React.Component {
         return (
             <div className="swiper-container">
                 <div className="swiper-wrapper">
-                    {images.map((images, photoIndex) =>
-                        <GalleryImage
-                            photoIndex={photoIndex}
-                            key={images.id}
-                            url={images.url}
-                        />
-                    )}
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 0})} className="swiper-image" src="/images/moto/1_0004_Layer-4.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 1})} className="swiper-image" src="/images/moto/5Xgf4YWK_Mw.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 2})} className="swiper-image" src="/images/moto/6P2nDm2rSvI.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 3})} className="swiper-image" src="/images/moto/15_05_2013_throttle_roll_13.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 4})} className="swiper-image" src="/images/moto/31_08_2012_cocaine_white_moped_01.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 5})} className="swiper-image" src="/images/moto/2014-Harley-Davidson-XL883N-Iron883c.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 6})} className="swiper-image" src="/images/moto/ducati-900SS-1.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 7})} className="swiper-image" src="/images/moto/eVb9iiMjC-A.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 8})} className="swiper-image" src="/images/moto/fbOVUqSaweU.jpg" alt=""/>
+                    </div>
+                    <div className="swiper-slide">
+                        <img onClick={() => this.setState({ isOpen: true, photoIndex: 9})} className="swiper-image" src="/images/moto/fpjPyO7BB40.jpg" alt=""/>
+                    </div>
+
+                    {/*{images.map((images, photoIndex) =>*/}
+                    {/*    <GalleryImage*/}
+                    {/*        photoIndex={photoIndex}*/}
+                    {/*        key={images.id}*/}
+                    {/*        url={images.url}*/}
+                    {/*    />*/}
+                    {/*)}*/}
                 </div>
                 <div className="swiper-pagination"></div>
                 <div className="swiper-button-next"></div>
