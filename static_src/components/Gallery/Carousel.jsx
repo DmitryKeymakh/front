@@ -14,25 +14,14 @@ export default class Carousel extends React.Component {
 
         this.state = {
             url: '',
+            images: [],
+            zoomImages: [],
             photoIndex: 0,
             isOpen: false,
-            images: [],
         };
     }
 
     componentDidMount() {
-
-        fetch(this.props.url)
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                } else {
-                    console.log(response.status);
-                }
-            })
-            .then(result => {
-                this.setState({images: result.images});
-            });
 
         new Swiper('.swiper-container', {
             slidesPerView: 3,
@@ -49,10 +38,25 @@ export default class Carousel extends React.Component {
                 prevEl: '.swiper-button-prev',
             },
         });
+
+        fetch(this.props.url)
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    console.log(response.status);
+                }
+            })
+            .then(result => {
+                this.setState({images: result.images});
+                for (let item of result.images) {
+                    this.state.zoomImages.push(item.src);
+                }
+            });
     }
 
     render() {
-        const { images, photoIndex, isOpen } = this.state;
+        const { images, zoomImages, photoIndex, isOpen } = this.state;
 
         return (
             <div className="swiper-container">
@@ -69,18 +73,18 @@ export default class Carousel extends React.Component {
 
                 {isOpen && (
                     <Lightbox
-                        mainSrc={images[photoIndex]}
-                        nextSrc={images[(photoIndex + 1) % images.length]}
-                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                        mainSrc={zoomImages[photoIndex]}
+                        nextSrc={zoomImages[(photoIndex + 1) % zoomImages.length]}
+                        prevSrc={zoomImages[(photoIndex + zoomImages.length - 1) % zoomImages.length]}
                         onCloseRequest={() => this.setState({ isOpen: false })}
                         onMovePrevRequest={() =>
                             this.setState({
-                                photoIndex: (photoIndex + images.length - 1) % images.length,
+                                photoIndex: (photoIndex + zoomImages.length - 1) % zoomImages.length,
                             })
                         }
                         onMoveNextRequest={() =>
                             this.setState({
-                                photoIndex: (photoIndex + 1) % images.length,
+                                photoIndex: (photoIndex + 1) % zoomImages.length,
                             })
                         }
                     />
