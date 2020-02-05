@@ -1,8 +1,13 @@
-* {
+*{
     margin: 0;
     padding: 0;
     outline: none;
     box-sizing: border-box;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 a{
@@ -23,7 +28,6 @@ $container-width: 1400px;
 
 .main {
     width: inherit;
-    //height: 5000px;
 }
 
 .second-page{

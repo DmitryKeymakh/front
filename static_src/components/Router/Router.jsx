@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom'
 import Layout from '../Layout';
 import SecondPage from '../SecondPage';
+import Error404 from '../Error404/Error404'
 
 
 export default class Router extends React.Component {
@@ -17,20 +18,9 @@ export default class Router extends React.Component {
                     path='/second'
                     component={SecondPage} />
                 <Route path="*">
-                    <NoMatch />
+                    <Error404 />
                 </Route>
             </Switch>
         )
     }
-}
-function NoMatch() {
-    let location = useLocation();
-
-    return (
-        <div>
-            <h1>
-                404. Страница с адресом <code>{location.pathname}</code> не найдена.
-            </h1>
-        </div>
-    );
 }
