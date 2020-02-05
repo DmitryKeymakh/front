@@ -22,7 +22,7 @@ export default class Gallery extends React.Component {
 
     componentDidMount() {
 
-        new Swiper('.swiper-container', {
+        let mySwiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
             spaceBetween: 30,
             slidesPerGroup: 3,
@@ -38,6 +38,7 @@ export default class Gallery extends React.Component {
             },
         });
 
+
         fetch(this.props.url)
             .then(response => {
                 if (response.status === 200) {
@@ -52,7 +53,13 @@ export default class Gallery extends React.Component {
                     this.state.zoomImages.push(item.src);
                 }
             });
+
+        // let mySwiper = document.querySelector('.swiper-container').swiper;
+        // mySwiper.update();
     }
+
+    // componentDidUpdate() {
+    // }
 
     render() {
         const { images, zoomImages, photoIndex, isOpen } = this.state;

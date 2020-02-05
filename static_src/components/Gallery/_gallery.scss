@@ -1,16 +1,9 @@
-$container-width: 1400px;
-
-.container{
-    width: $container-width;
-    margin: 0 auto;
-}
-
 .swiper-container{
-    @extend .container;
+    width: inherit;
+    background-color: #fff;
 }
 .swiper-slide{
     height: 350px;
-    //width: 150px;
 }
 .swiper-image{
     object-fit: cover;
