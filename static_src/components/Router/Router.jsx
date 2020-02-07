@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Layout from '../Layout';
 import SecondPage from '../SecondPage';
 import Error404 from '../Error404/Error404'
@@ -17,7 +17,8 @@ export default class Router extends React.Component {
                     exact
                     path='/second'
                     component={SecondPage} />
-                <Route path="*">
+                <Route
+                    path="*">
                     <Error404 />
                 </Route>
             </Switch>
