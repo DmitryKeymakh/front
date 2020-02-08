@@ -18,7 +18,7 @@ const SignInSchema = Yup.object({
 export default function SignInForm() {
     return (
         <Formik
-            initialValues={{ firstName: '', lastName: '', email: '' }}
+            initialValues={{ password: '', email: '' }}
             validationSchema={SignInSchema}
             onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
