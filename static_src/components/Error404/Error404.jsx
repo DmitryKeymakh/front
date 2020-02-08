@@ -7,8 +7,8 @@ export default function Error404() {
     let location = useLocation();
 
     return (
-        <div className="main error-page">
+        <>
             <div className="error-page-header">404. Страница с адресом <code>{location.pathname}</code> не найдена.</div>
-        </div>
+        </>
     );
 }

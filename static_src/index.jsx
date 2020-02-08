@@ -1,3 +1,4 @@
+import './styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from './components/Router/Router'
@@ -10,7 +11,9 @@ ReactDOM.render(
     <BrowserRouter>
         <div className="container">
             <Header />
-            <Router />
+            <div className="main">
+                <Router />
+            </div>
             <Footer />
         </div>
     </BrowserRouter>,
