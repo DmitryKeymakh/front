@@ -8,10 +8,7 @@ import * as Yup from 'yup';
 export default class SignInForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // поправить баз с переходом на другие стр
-            showWarning: null,
-        };
+
         this.SignInSchema = Yup.object({
             email: Yup.string()
                 .email('Неправильный имейл')
@@ -22,14 +19,6 @@ export default class SignInForm extends React.Component {
         });
     }
 
-    componentDidUpdate() {
-        // console.log(this.state.showWarning);
-        if (this.state.showWarning === true) {
-            const block = document.querySelector('.main');
-            block.insertAdjacentHTML('afterbegin', '<div>неправильные почта или пароль!</div>');
-        }
-    }
-
     render() {
         return (
             <Formik
@@ -37,29 +26,30 @@ export default class SignInForm extends React.Component {
                 validationSchema={this.SignInSchema}
                 // validateOnChange={false}
                 onSubmit={(values, {setSubmitting}) => {
-                    fetch('https://raw.githubusercontent.com/DmitryKeymakh/front/master/api/check-passsword.json')
+                    fetch('https://raw.githubusercontent.com/DmitryKeymakh/front/master/api/check-password.json')
                         .then (response => {
+                            const block = document.querySelector('.check-in-warning');
                             if (response.status === 200) {
-                                // return response.json();
-                                this.setState({showWarning: false});
-                                setSubmitting(true);
-                                // console.log(response.status);
+                                block.classList.add('check-in-warning-hide');
+
+                                setTimeout(() => {
+                                    alert(JSON.stringify(values, null, 2));
+                                    setSubmitting(false);
+                                 }, 400);
+
+                                // setSubmitting(true);
+                                // window.location.href = 'http://localhost:8080/';
                             } else {
-                                this.setState({showWarning: true});
+                                block.classList.remove('check-in-warning-hide');
                                 setSubmitting(false);
-                                // console.log(response.status);
                             }
                         })
-                    // setTimeout(() => {
-                    //     alert(JSON.stringify(values, null, 2));
-                    //     setSubmitting(false);
-                    // }, 400);
                     }
                 }
             >
                 {({errors, touched}) => (
                     <Form>
-                        <label htmlFor="email">Email Address</label>
+                        <label htmlFor="email">Email</label>
                         <Field
                             className={errors.email && touched.email ? ('text-input error') : ('text-input')}
                             name="email"
@@ -77,6 +67,11 @@ export default class SignInForm extends React.Component {
                             component="div"
                             className="input-feedback"
                             name="password"/>
+                        <label htmlFor="showHide">Показать пароль</label>
+                        <Field
+                            className={'text-input'}
+                            name="showHide"
+                            type="checkbox"/>
                         <button type="reset">Reset</button>
                         <button type="submit">Submit</button>
                     </Form>
