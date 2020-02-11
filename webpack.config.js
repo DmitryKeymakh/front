@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 
 module.exports = {
+    devtool: 'inline-cheap-module-source-map',
     entry: {
         app: './index.jsx',
     },
@@ -28,7 +29,21 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
         ],
     },
@@ -42,5 +57,4 @@ module.exports = {
             index: 'index.html'
         }
     },
-    devtool: 'cheap-inline-module-source-map',
 };
