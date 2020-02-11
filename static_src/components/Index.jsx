@@ -1,7 +1,7 @@
 import React from 'react';
 // import Gallery from './Gallery/Gallery';
 
-export default class Layout extends React.Component {
+export default class Index extends React.Component {
 
     render() {
         return (

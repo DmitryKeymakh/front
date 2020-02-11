@@ -17,7 +17,7 @@ export default class ShowHidePassword extends React.Component {
     render() {
         return (
             <label className="show-hide text-label">
-                Показать/скрыть пароль
+                Показывать пароль
                 <input className="show-hide-input" type="checkbox" onChange={this.handleChange} />
             </label>
         )

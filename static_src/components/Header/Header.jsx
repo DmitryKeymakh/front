@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
-import Menu from '../Menu/Menu';
-import DropdownProfile from '../DropdownProfile/DropdownProfile';
+import Menu from '../Header/Menu/Menu';
+import DropdownProfile from '../Header/DropdownProfile/DropdownProfile';
 import './_header.scss';
 
 
