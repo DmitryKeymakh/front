@@ -3,8 +3,9 @@
   justify-content: space-between;
   height: 100%;
   color: aliceblue;
-  font-size: 1.5rem;
   &-item{
+    font-size: 1.5rem;
+    color: #97ff06;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,9 +19,11 @@
     &:hover{
       cursor: pointer;
       background-color: #7b4d9a;
+      color: #f6ff00;
     }
     &:active{
       background-color: #cd82ff;
     }
   }
 }
+
