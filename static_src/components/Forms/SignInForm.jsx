@@ -3,6 +3,7 @@ import React from 'react';
 import 'babel-polyfill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import ShowHidePassword from './ShowHidePassword/ShowHidePassword';
 
 
 export default class SignInForm extends React.Component {
@@ -11,8 +12,8 @@ export default class SignInForm extends React.Component {
 
         this.SignInSchema = Yup.object({
             email: Yup.string()
-                .email('Неправильный имейл')
-                .required('Введите имейл'),
+                .email('Неправильный email')
+                .required('Введите email'),
             password: Yup.string()
                 .required('Введите пароль')
                 .min(6, 'Минимальная длина: 6 символов'),
@@ -49,29 +50,28 @@ export default class SignInForm extends React.Component {
             >
                 {({errors, touched}) => (
                     <Form>
-                        <label htmlFor="email">Email</label>
+                        <label className="text-label" htmlFor="email">Email</label>
                         <Field
                             className={errors.email && touched.email ? ('text-input error') : ('text-input')}
+                            placeholder="Введите email"
                             name="email"
                             type="email"/>
                         <ErrorMessage
                             component="div"
                             className="input-feedback"
                             name="email"/>
-                        <label htmlFor="password">Пароль</label>
+                        <label className="text-label" htmlFor="password">Пароль</label>
                         <Field
-                            className={errors.password && touched.password ? ('text-input error') : ('text-input')}
+                            className={errors.password && touched.password ? ('text-input input-password error') : ('text-input input-password')}
+                            placeholder="Введите пароль"
                             name="password"
                             type="password"/>
                         <ErrorMessage
                             component="div"
                             className="input-feedback"
                             name="password"/>
-                        <label htmlFor="showHide">Показать пароль</label>
                         <Field
-                            className={'text-input'}
-                            name="showHide"
-                            type="checkbox"/>
+                            component={ShowHidePassword}/>
                         <button type="reset">Reset</button>
                         <button type="submit">Submit</button>
                     </Form>
