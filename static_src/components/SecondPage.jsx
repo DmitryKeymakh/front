@@ -9,7 +9,7 @@ export default class SecondPage extends React.Component {
         return (
             <>
                 {/*<TestForm />*/}
-                <TabsComponent />
+                <TabsComponent url='https://raw.githubusercontent.com/DmitryKeymakh/front/test/api/tabs.json' />
             </>
         )
     }
