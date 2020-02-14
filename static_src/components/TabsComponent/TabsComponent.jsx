@@ -30,18 +30,22 @@ export default class TabsComponent extends React.Component {
     render() {
         const { tabsData } = this.state;
 
-        const titles = tabsData.map((tabs) =>
+        const titles = tabsData.map((tab) =>
                             <Tab
-                                key={tabs.title}>
-                                    {tabs.title}
+                                key={tab.title}>
+                                    {tab.title}
                             </Tab>
                         );
 
-        const tabsContent = tabsData.map((tabs) =>
+        const tabsContent = tabsData.map((tabContent) =>
                                 <TabPanel
-                                    key={tabs.title}>
-                                        <p>{tabs.tabPanel.text}</p>
-                                        <img src={tabs.tabPanel.picture} alt="tabs-picture"/>
+                                    key={tabContent.title}>
+                                        <p className="tab-panel-text">{tabContent.tabPanel.text}</p>
+                                        <img
+                                            className={tabContent.tabPanel.picture ? ('tab-panel-image') : ('tab-panel-image tab-image-disable')}
+                                            src={tabContent.tabPanel.picture}
+                                            alt="tabs-picture"
+                                        />
                                 </TabPanel>
                             );
 
