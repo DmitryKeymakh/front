@@ -9,14 +9,22 @@ export default class TabsComponent extends React.Component {
         super(props);
 
         this.state = {
-            tabsData:[]
+            tabsData:[
+                {
+                    title: "",
+                    tabPanel: {
+                        text: "",
+                        picture: ""
+                    }
+                }
+            ]
         };
     }
 
     componentDidMount() {
         fetch(this.props.url)
             .then(response => response.json())
-            .then(result => {this.setState({tabsData:result})});
+            .then(result => {this.setState({tabsData: result})});
     }
 
     render() {

@@ -4,6 +4,10 @@ import TabsComponent from './TabsComponent/TabsComponent';
 
 
 export default class SecondPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
 
     render() {
         return (
