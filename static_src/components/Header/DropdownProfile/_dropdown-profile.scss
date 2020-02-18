@@ -1,0 +1,19 @@
+.dropdown-profile{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &-button{
+        user-select: none;
+        cursor: pointer;
+    }
+    &-menu{
+        position: absolute;
+        top: 50px;
+        width: 180px;
+        height: 400px;
+        border: 1px solid rgba(17, 17, 17, 0.85);
+        border-radius: 7px;
+        background-color: #04ed90;
+    }
+}
