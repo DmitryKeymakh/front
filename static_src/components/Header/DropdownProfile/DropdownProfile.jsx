@@ -8,7 +8,6 @@ export default class DropdownProfile extends React.Component {
     toggle = () => this.setState(state => ({ show: !state.show }));
 
     render() {
-        console.log(this.state.show);
         return (
             <div className="dropdown-profile">
                 <div className="dropdown-profile-button" onClick={this.toggle}>Войти</div>
@@ -20,7 +19,6 @@ export default class DropdownProfile extends React.Component {
                     enter={[{ opacity: 1, transform: 'scale(1, 1) translateY(10px)' }]}
                     leave={{ opacity: 0 }}
                 >
-
                     {show =>
                         show && (props =>
                             <animated.div
