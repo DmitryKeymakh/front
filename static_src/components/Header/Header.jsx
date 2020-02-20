@@ -1,8 +1,7 @@
 import './_header.scss';
 import React from 'react';
 import Logo from '../Logo/Logo';
-// import Menu from '../Header/Menu/Menu';
-import MenuTest from '../Header/Menu/MenuTest';
+import Menu from '../Header/Menu/Menu';
 import DropdownProfile from '../Header/DropdownProfile/DropdownProfile';
 
 
@@ -12,8 +11,7 @@ export default class Header extends React.Component {
         return (
             <div className="header">
                 <Logo />
-                {/*<Menu />*/}
-                <MenuTest />
+                <Menu />
                 <DropdownProfile />
             </div>
         )
