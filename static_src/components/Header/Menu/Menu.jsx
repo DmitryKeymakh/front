@@ -1,7 +1,5 @@
 import './_menu.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
-// import {animated, Transition} from "react-spring/renderprops";
 import MenuItem from './MenuItem';
 
 const menuObj = [
@@ -51,9 +49,6 @@ export default class Menu extends React.Component {
                         <MenuItem key={index} dataObject={item}/>
                     )
                 }
-                {/*<li className="menu-item"><Link to="/third">третья</Link></li>*/}
-                {/*<li className="menu-item"><Link to="/sign-in">авторизация</Link></li>*/}
-                {/*<li className="menu-item"><Link to="/sign-up">регистрация</Link></li>*/}
             </ul>
         )
     }

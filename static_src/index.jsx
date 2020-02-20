@@ -10,8 +10,8 @@ import Footer from "./components/Footer/Footer";
 ReactDOM.render(
     <BrowserRouter>
         <div className="container">
-            <Header />
             <div className="main">
+                <Header />
                 <Router />
             </div>
             <Footer />

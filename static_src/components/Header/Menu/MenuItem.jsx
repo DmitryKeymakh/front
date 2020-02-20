@@ -10,6 +10,7 @@ export default class MenuItem extends React.Component {
     }
 
     state = {show: false};
+    // state = {show: true};
     toggle = () => this.setState(state => ({show: !state.show}));
 
     render() {
@@ -21,9 +22,9 @@ export default class MenuItem extends React.Component {
                 <Transition
                     // native
                     items={this.state.show}
-                    trail={10}
-                    from={{ opacity: 0, transform: 'scale(0.9, 1) translateY(0px)',}}
-                    enter={{ display: 'flex', opacity: 1, transform: 'scale(1, 1) translateY(10px)' }}
+                    trail={100}
+                    from={{ opacity: 0 }}
+                    enter={{ opacity: 1, display: 'flex' }}
                     leave={{ opacity: 0 }}
                 >
                     {show =>
