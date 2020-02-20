@@ -11,15 +11,18 @@ const menuObj = [
         "url": "/",
         "dropdownMenu": [
             {
-                "title": "Первый",
-                "url": "asd",
+                "title": "Автоизация",
+                "key": 1,
+                "url": "/sign-in",
             },
             {
-                "title": "Второй",
-                "url": "fgh",
+                "title": "Регистрация",
+                "key": 2,
+                "url": "/sign-up",
             },
             {
                 "title": "Третий и четвертый",
+                "key": 3,
                 "url": "hjl",
             },
         ]
@@ -28,13 +31,13 @@ const menuObj = [
         "title": "Вторая",
         "key": "second",
         "url": "/second",
-        "dropdownMenu": {},
+        "dropdownMenu": [],
     },
     {
         "title": "Третья",
         "key": "third",
         "url": "",
-        "dropdownMenu": {},
+        "dropdownMenu": [],
     },
 ];
 
@@ -43,12 +46,14 @@ export default class Menu extends React.Component {
     render() {
         return (
             <ul className="menu">
-
-                <MenuItem />
-                <MenuItem />
-                <li className="menu-item"><Link to="/third">третья</Link></li>
-                <li className="menu-item"><Link to="/sign-in">авторизация</Link></li>
-                <li className="menu-item"><Link to="/sign-up">регистрация</Link></li>
+                {
+                    menuObj.map((item, index) =>
+                        <MenuItem key={index} dataObject={item}/>
+                    )
+                }
+                {/*<li className="menu-item"><Link to="/third">третья</Link></li>*/}
+                {/*<li className="menu-item"><Link to="/sign-in">авторизация</Link></li>*/}
+                {/*<li className="menu-item"><Link to="/sign-up">регистрация</Link></li>*/}
             </ul>
         )
     }

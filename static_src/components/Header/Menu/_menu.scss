@@ -32,13 +32,25 @@
 }
 
 .dropdown-menu{
+  display: none;
+  flex-direction: column;
   position: absolute;
   top: 50px;
   cursor: default;
-  width: 180px;
-  height: 400px;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
   border: 1px solid rgba(17, 17, 17, 0.85);
   border-radius: 7px;
   background-color: #04ed90;
+  &-item{
+    color: #c8003a;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    &:hover{
+      cursor: pointer;
+      color: #ff0f65;
+    }
+  }
 }
 
