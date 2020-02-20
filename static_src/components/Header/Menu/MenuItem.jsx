@@ -22,10 +22,10 @@ export default class MenuItem extends React.Component {
                 <Transition
                     // native
                     items={this.state.show}
-                    trail={100}
-                    from={{ opacity: 0 }}
+                    // trail={100}
+                    from={{ opacity: 0, transition: '0.15s' }}
                     enter={{ opacity: 1, display: 'flex' }}
-                    leave={{ opacity: 0 }}
+                    leave={{  }}
                 >
                     {show =>
                         (dropdownMenu.length !== 0) && show && (props =>
