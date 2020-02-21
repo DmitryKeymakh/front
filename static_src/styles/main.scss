@@ -21,8 +21,8 @@ $container-width: 1600px;
 
 .container{
   max-width: $container-width;
-  //min-height: 100vh;
-  min-height: 3000px;
+  min-height: 100vh;
+  //min-height: 3000px;
   margin: 0 auto;
   background-color: yellowgreen;
   display: grid;

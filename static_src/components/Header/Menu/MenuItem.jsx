@@ -11,15 +11,15 @@ export default class MenuItem extends React.Component {
 
     state = {show: false};
 
-    toggle = (event) => {
-        const listItemBlock = document.querySelector('.menu-list-item');
-        const listLinkBlock = document.querySelector('.menu-list-link');
-        const dropdownBlock = document.querySelector('.dropdown-menu');
-
-        if (event.target === listItemBlock || event.target === dropdownBlock || event.target === listLinkBlock) {
-            listLinkBlock.classList.toggle('menu-list-link-active');
-        }
-
+    menuToggle = (event) => {
+        // const listItemBlock = document.querySelector('.menu-list-item');
+        // const listLinkBlock = document.querySelector('.menu-list-link');
+        // const dropdownBlock = document.querySelector('.dropdown-menu');
+        //
+        // if (event.target === listItemBlock || event.target === dropdownBlock || event.target === listLinkBlock) {
+        //     listLinkBlock.classList.toggle('menu-list-link-active');
+        // }
+        // console.log(event.target);
         this.setState(state => ({show: !state.show}));
     };
 
@@ -27,7 +27,7 @@ export default class MenuItem extends React.Component {
         const { title, key, url, dropdownMenu } = this.props.dataObject;
 
         return (
-            <li key={key} className="menu-list-item" onMouseEnter={this.toggle} onMouseLeave={this.toggle}>
+            <li key={key} className="menu-list-item" onMouseEnter={this.menuToggle} onMouseLeave={this.menuToggle}>
                 <Link className="menu-list-link" to={url}>{title}</Link>
                 <Transition
                     native

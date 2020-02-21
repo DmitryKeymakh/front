@@ -16,7 +16,7 @@ a {
 
 .container {
   max-width: 1600px;
-  min-height: 3000px;
+  min-height: 100vh;
   margin: 0 auto;
   background-color: yellowgreen;
   display: grid;

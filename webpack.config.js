@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -6,9 +6,9 @@ module.exports = {
     entry: {
         app: './index.jsx',
     },
-    context: path.resolve(__dirname, "static_src"),
+    context: path.resolve(__dirname, 'static_src'),
     output: {
-        path: path.resolve(__dirname, "static", "build"),
+        path: path.resolve(__dirname, 'static', 'build'),
         filename: 'app.js',
     },
     watch: process.argv[process.argv.length - 1] === 'development',
@@ -16,9 +16,12 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: path.resolve(__dirname, "static_src"),
+                include: [
+                    path.resolve(__dirname, 'node_modules/react-spring'),
+                    path.resolve(__dirname, 'static_src'),
+                ],
                 loader: 'babel-loader',
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
                 options: {
                     presets: [
                         '@babel/env',
@@ -30,11 +33,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader',
-            },
-            {
-                test: /\.s[ac]ss$/i,
+                test: /\.(sa|sc|c)ss$/i,
                 use: [
                     'style-loader',
                     {
@@ -49,6 +48,15 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: [
+                                require('autoprefixer')({ grid: true }),
+                            ]
+                        }
+                    },
                 ],
             },
         ],
@@ -58,7 +66,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
     },
     devServer: {
-        port: 8081,
+        port: 8082,
         historyApiFallback: {
             index: 'index.html'
         }
