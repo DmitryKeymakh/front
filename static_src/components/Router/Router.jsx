@@ -1,10 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 import Index from '../Index';
 import SecondPage from '../SecondPage';
 import SignIn from '../SignIn';
 import SignUp from '../SignUp';
-import Error404 from '../Error404/Error404'
+import Error404 from '../Error404/Error404';
 
 
 export default class Router extends React.Component {

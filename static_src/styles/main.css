@@ -15,20 +15,14 @@ a {
   color: inherit; }
 
 .container {
-  width: 1400px;
+  max-width: 1600px;
   min-height: 100vh;
   margin: 0 auto;
   background-color: yellowgreen;
   display: grid;
-  grid-template-rows: auto 1fr auto; }
+  grid-template-rows: 1fr auto; }
 
 .main {
   width: inherit; }
-
-.first-page {
-  background-color: coral; }
-
-.second-page {
-  background-color: #f0b9b6; }
 
 /*# sourceMappingURL=main.css.map */

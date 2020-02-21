@@ -1,19 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import './_menu.scss';
+import React from 'react';
+import MenuItem from './MenuItem';
 
+const menuObj = [
+    {
+        "title": "Главная",
+        "key": "main",
+        "url": "/",
+        "dropdownMenu": [
+            {
+                "title": "Автоизация",
+                "key": 1,
+                "url": "/sign-in",
+            },
+            {
+                "title": "Регистрация",
+                "key": 2,
+                "url": "/sign-up",
+            },
+            {
+                "title": "Третий и четвертый",
+                "key": 3,
+                "url": "hjl",
+            },
+        ]
+    },
+    {
+        "title": "Вторая",
+        "key": "second",
+        "url": "/second",
+        "dropdownMenu": [],
+    },
+    {
+        "title": "Третья",
+        "key": "third",
+        "url": "",
+        "dropdownMenu": [],
+    },
+];
 
 export default class Menu extends React.Component {
 
     render() {
         return (
-            <div className="menu">
-                <Link className="menu-item" to="/">главная</Link>
-                <Link className="menu-item" to="/second">вторая</Link>
-                <Link className="menu-item" to="/third">третья</Link>
-                <Link className="menu-item" to="/sign-in">авторизация</Link>
-                <Link className="menu-item" to="/sign-up">регистрация</Link>
-            </div>
+            <ul className="menu">
+                {
+                    menuObj.map((item, index) =>
+                        <MenuItem key={index} dataObject={item}/>
+                    )
+                }
+            </ul>
         )
     }
 }
