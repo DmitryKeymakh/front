@@ -1,12 +1,10 @@
 .header{
   position: sticky;
   top: 0;
+  z-index: 111;
   display: grid;
-  //grid-template-columns: repeat(3, 1fr);
   grid-template-columns: 1fr 50% 1fr;
-  //align-items: center;
   width: inherit;
   height: 80px;
   background-color: #bf7df0;
-  //padding: 0.6rem 0.9rem;
 }

@@ -6,20 +6,11 @@ import {animated, Transition} from "react-spring/renderprops";
 export default class MenuItem extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     state = {show: false};
 
-    menuToggle = (event) => {
-        // const listItemBlock = document.querySelector('.menu-list-item');
-        // const listLinkBlock = document.querySelector('.menu-list-link');
-        // const dropdownBlock = document.querySelector('.dropdown-menu');
-        //
-        // if (event.target === listItemBlock || event.target === dropdownBlock || event.target === listLinkBlock) {
-        //     listLinkBlock.classList.toggle('menu-list-link-active');
-        // }
-        // console.log(event.target);
+    menuToggle = () => {
         this.setState(state => ({show: !state.show}));
     };
 
@@ -32,7 +23,7 @@ export default class MenuItem extends React.Component {
                 <Transition
                     native
                     items={this.state.show}
-                    from={{ opacity: 0, transition: '0.15s' }}
+                    from={{ opacity: 0, transition: '0.1s' }}
                     enter={{ opacity: 1, display: 'flex' }}
                     leave={{  }}
                 >
