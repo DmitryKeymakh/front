@@ -23,13 +23,24 @@ const menuObj = [
                 "key": 3,
                 "url": "hjl",
             },
-        ]
+        ],
     },
     {
         "title": "Вторая",
         "key": "second",
         "url": "/second",
-        "dropdownMenu": [],
+        "dropdownMenu": [
+            {
+                "title": "as",
+                "key": 1,
+                "url": "as",
+            },
+            {
+                "title": "as",
+                "key": 2,
+                "url": "as",
+            },
+        ],
     },
     {
         "title": "Третья",
