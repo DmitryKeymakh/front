@@ -14,12 +14,16 @@ export default class MenuItem extends React.Component {
         this.setState(state => ({show: !state.show}));
     };
 
+    pageScrollToTop = () => {
+        window.scroll(0,0);
+    };
+
     render() {
         const { title, key, url, dropdownMenu } = this.props.dataObject;
 
         return (
             <li key={key} className="menu-list-item" onMouseEnter={this.menuToggle} onMouseLeave={this.menuToggle}>
-                <Link className="menu-list-link" to={url}>{title}</Link>
+                <Link onClick={this.pageScrollToTop} className="menu-list-link" to={url}>{title}</Link>
                 <Transition
                     native
                     items={this.state.show}
@@ -35,7 +39,7 @@ export default class MenuItem extends React.Component {
                             >
                                 {
                                     dropdownMenu.map((link) =>
-                                        <Link key={link.key} className="dropdown-menu-item" to={link.url}>{link.title}</Link>
+                                        <Link key={link.key} onClick={this.pageScrollToTop} className="dropdown-menu-item" to={link.url}>{link.title}</Link>
                                     )
                                 }
                             </animated.div>)
