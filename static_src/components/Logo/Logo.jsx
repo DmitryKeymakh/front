@@ -4,10 +4,13 @@ import './_logo.scss';
 
 
 export default class Menu extends React.Component {
+    pageScrollToTop = () => {
+        window.scroll(0,0);
+    };
 
     render() {
         return (
-            <Link className="logo" to="/">Logo</Link>
+            <Link className="logo" to="/" onClick={this.pageScrollToTop}>Logo</Link>
         )
     }
 }
